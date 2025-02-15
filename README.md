@@ -21,7 +21,7 @@ This is a Laravel-based Translation API that provides authentication and transla
 ### Setup Instructions
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/your-repo.git
+   git clone https://github.com/muhammadanees011/Translations.git
    cd your-repo
    ```
 
@@ -79,27 +79,83 @@ All protected routes require authentication using Laravel Passport. After login,
 ```sh
 Authorization: Bearer {your_token}
 ```
+### Register
+Endpoint: `POST /register`
 
-## Searching Translations
-You can filter translations using query parameters:
-
-```sh
-POST /translations/search
+Example request body:
+```json
 {
-    "locale": "en",
-    "key": "welcome",
-    "content": "Hello"
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "password123"
 }
 ```
 
-## Export Translations
-To export translations in JSON format:
-```sh
-GET /export-translations
+### Login
+Endpoint: `POST /login`
+
+Example request body:
+```json
+{
+    "email": "john@example.com",
+    "password": "password123"
+}
+```
+Response:
+```json
+{
+    "access_token": "your-token-here",
+    "token_type": "Bearer"
+}
+```
+Use this token in the `Authorization` header for protected endpoints.
+
+## API Endpoints
+
+### Create Translation
+**Endpoint:** `POST /translations`
+
+Example request body:
+```json
+{
+    "locale": "en",
+    "key": "Bye",
+    "content": "Bye",
+    "context": "web"
+}
 ```
 
-## Contributing
-Feel free to submit pull requests or issues.
+### Get Translation by ID
+**Endpoint:** `GET /translations/{id}`
+
+Example:
+```sh
+GET /translations/1
+```
+
+### Search Translations
+**Endpoint:** `POST /translations/search`
+
+Example request body:
+```json
+{
+    "key": "Bye"
+}
+```
+
+### Update Translation
+**Endpoint:** `PUT /translations/{id}`
+
+Example request body:
+```json
+{
+    "key": "Bye",
+    "content": "Bye"
+}
+```
+
+### Export Translations
+**Endpoint:** `GET /export-translations`
 
 ## License
 This project is open-source and available under the MIT License.
