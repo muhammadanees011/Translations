@@ -11,6 +11,10 @@ This is a Laravel-based Translation API that provides authentication and transla
 - Exporting translations
 - Secure API endpoints with middleware protection
 
+# Performance Optimizations
+
+This API uses database indexing and raw queries to improve performance and ensure response times remain under 200ms.
+
 ## Installation
 ### Prerequisites
 - PHP >= 8.0
