@@ -12,8 +12,9 @@ This is a Laravel-based Translation API that provides authentication and transla
 - Secure API endpoints with middleware protection
 
 # Performance Optimizations
-
-This API uses database indexing and raw queries to improve performance and ensure response times remain under 200ms.
+- Indexing is applied on frequently queried columns like locale, key, and content.
+- Raw SQL queries are used where applicable to enhance performance.
+- Pagination is implemented for large datasets to keep response times low.
 
 ## Installation
 ### Prerequisites
@@ -159,6 +160,12 @@ Example request body:
 
 ### Export Translations
 **Endpoint:** `GET /export-translations`
+
+## Testing
+Run the following command to execute unit &  feature tests:
+```json
+php artisan test
+```
 
 ## License
 This project is open-source and available under the MIT License.
