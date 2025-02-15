@@ -104,8 +104,7 @@ Example request body:
 Response:
 ```json
 {
-    "access_token": "your-token-here",
-    "token_type": "Bearer"
+    "token": "your-token-here",
 }
 ```
 Use this token in the `Authorization` header for protected endpoints.
